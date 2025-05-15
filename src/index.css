@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background-primary text-text-primary antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Exo 2', sans-serif;
+    @apply font-bold;
+  }
+
+  code, pre {
+    font-family: 'Fira Code', monospace;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-primary text-background-primary shadow-glow hover:opacity-90;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-background-primary shadow-glow-purple hover:opacity-90;
+  }
+
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary/10;
+  }
+
+  .card {
+    @apply bg-background-secondary rounded-xl p-4 shadow-md border border-gray-800;
+  }
+
+  .input {
+    @apply bg-background-secondary border border-gray-700 text-text-primary p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  .badge {
+    @apply px-2 py-0.5 text-xs font-medium rounded-full;
+  }
+
+  .badge-success {
+    @apply bg-success/20 text-success;
+  }
+
+  .badge-warning {
+    @apply bg-warning/20 text-warning;
+  }
+
+  .badge-error {
+    @apply bg-error/20 text-error;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .bg-grid {
+    background-size: 20px 20px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #00FFFF 0%, #9F50FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Transition classes */
+.transition-width {
+  transition-property: width;
+}
