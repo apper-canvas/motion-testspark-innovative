@@ -58,6 +58,23 @@
   .badge-error {
     @apply bg-error/20 text-error;
   }
+  
+  /* React Flow styles */
+  .flow-container {
+    @apply h-[400px] bg-background-primary rounded-lg border border-gray-700;
+  }
+  
+  .flow-node {
+    @apply p-3 bg-background-secondary rounded-lg border border-gray-700 min-w-[180px] shadow-md;
+  }
+  
+  .flow-node-click {
+    @apply border-2 border-primary shadow-glow;
+  }
+  
+  .flow-node-input {
+    @apply border-2 border-secondary shadow-glow-purple;
+  }
 }
 
 @layer utilities {

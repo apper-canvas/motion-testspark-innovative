@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'react-toastify'
 import getIcon from '../utils/iconUtils'
+import TestFlowDiagram from './TestFlowDiagram'
 
 const MainFeature = () => {
   const [recordingUrl, setRecordingUrl] = useState('')
@@ -20,6 +21,7 @@ const MainFeature = () => {
   const CheckIcon = getIcon('Check')
   const TrashIcon = getIcon('Trash')
   const ArrowUpRightIcon = getIcon('ArrowUpRight')
+  const DiagramIcon = getIcon('GitBranch')
 
   const handleUrlChange = (e) => {
     setRecordingUrl(e.target.value)
@@ -146,6 +148,15 @@ const MainFeature = () => {
           >
             Steps{recordedSteps.length > 0 && ` (${recordedSteps.length})`}
           </button>
+          <button
+            className={`px-3 py-1 rounded-lg text-sm ${
+              activeView === 'flow' 
+                ? 'bg-gray-700 text-text-primary' 
+                : 'text-text-secondary hover:bg-gray-700'
+            }`}
+            onClick={() => setActiveView('flow')}
+            disabled={recordedSteps.length === 0}
+          >Flow</button>
         </div>
       </div>
       
@@ -317,6 +328,29 @@ const MainFeature = () => {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+        )}
+
+        {activeView === 'flow' && (
+          <motion.div
+            key="flow"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="mb-4 p-3 bg-background-primary rounded-lg border border-gray-700">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-medium flex items-center">
+                    <DiagramIcon size={18} className="mr-2 text-primary" />
+                    Test Flow Visualization
+                  </h3>
+                  <p className="text-sm text-text-secondary">Interactive diagram of your test steps</p>
+                </div>
+              </div>
+            </div>
+            <TestFlowDiagram steps={recordedSteps} />
           </motion.div>
         )}
       </AnimatePresence>

@@ -41,6 +41,7 @@ const Home = () => {
   const ClockIcon = getIcon('Clock')
   const CheckIcon = getIcon('CheckCircle2')
   const AlertCircleIcon = getIcon('AlertCircle')
+  const PlusIcon = getIcon('Plus')
   const MoreVerticalIcon = getIcon('MoreVertical')
 
   const deleteProject = (id) => {
@@ -175,5 +176,3 @@ const Home = () => {
 }
 
 export default Home
-
-const PlusIcon = getIcon('Plus')
